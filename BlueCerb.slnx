@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="BlueCerb.Containers/BlueCerb.Containers.csproj" />
+  <Project Path="BlueCerb.Core/BlueCerb.Core.csproj" />
+  <Project Path="BlueCerb.Desktop/BlueCerb.Desktop.csproj" />
+  <Project Path="BlueCerb.Drivers/BlueCerb.Drivers.csproj" />
+  <Project Path="BlueCerb.Features/BlueCerb.Features.csproj" />
+  <Project Path="BlueCerb.Services/BlueCerb.Services.csproj" />
+</Solution>

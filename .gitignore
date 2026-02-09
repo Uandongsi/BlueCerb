@@ -1,0 +1,7 @@
+# 忽略 bin 和 obj 编译目录
+bin/
+obj/
+
+# (可选) 如果你使用的是 Visual Studio，通常建议也忽略以下隐藏目录和用户配置文件
+.vs/
+*.user
