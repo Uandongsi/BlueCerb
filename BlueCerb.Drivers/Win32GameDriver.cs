@@ -77,13 +77,20 @@ public class Win32GameDriver : IGameDriver
     }
 
     public byte[] CaptureFrame()
-    {
-        if (!IsBound) return Array.Empty<byte>();
+{
+    if (!IsBound) return Array.Empty<byte>();
 
-        // 这里暂时用 GDI 截图演示，为了极致性能你应该在这里调用 DxgiCaptureHelper
-        // 实际项目中：return _dxgiHelper.Capture(_hwnd);
-        return new byte[0]; // 占位符
-    }
+    // 1. 确保尺寸是最新的
+    RefreshGameArea(); 
+    
+    // 2. 如果窗口最小化了，可能截不到，需要判断
+    if (_validGameArea.Width <= 0 || _validGameArea.Height <= 0) 
+        return Array.Empty<byte>();
+
+    // 3. 调用后台截图帮助类
+    // 传入的宽高必须是 GetClientRect 获取到的纯净宽高（990x560）
+    return ImageCaptureHelper.CaptureWindowBackground(_hwnd, _validGameArea.Width, _validGameArea.Height);
+}
 
     // --- 私有辅助：黑边计算 ---
 
