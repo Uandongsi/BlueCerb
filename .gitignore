@@ -1,7 +1,18 @@
 # 忽略 bin 和 obj 编译目录
-bin/
-obj/
+[Bb]in/
+[Oo]bj/
 
 # (可选) 如果你使用的是 Visual Studio，通常建议也忽略以下隐藏目录和用户配置文件
 .vs/
 *.user
+*.suo
+
+# 日志文件 (Serilog)
+*.log
+Logs/
+
+# AI 模型与运行时数据 (OCR/YOLO)
+*.onnx
+*.pdmodel
+*.pdiparams
+inference/
